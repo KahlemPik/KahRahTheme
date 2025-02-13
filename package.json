@@ -1,0 +1,41 @@
+{
+    "name": "kahrahtheme",
+    "displayName": "KahRahTheme",
+    "description": "",
+    "version": "0.1.0",
+    "engines": {
+        "vscode": "^1.97.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "Kah Rah Theme",
+                "uiTheme": "vs-dark",
+                "path": "./themes/Kah Rah Theme-color-theme.json"
+            }
+        ],
+        "languages": [
+            {
+                "id": "ejs",
+                "extensions": [".ejs"],
+                "aliases": ["EJS"],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "ejs",
+                "scopeName": "source.ejs",
+                "path": "./syntaxes/ejs.tmLanguage.json"
+            },
+            {
+                "scopeName": "python.injections",
+                "path": "./syntaxes/python-injections.tmLanguage.json",
+                "injectTo": ["source.python"]
+            }
+        ]
+    }
+}

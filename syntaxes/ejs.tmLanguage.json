@@ -1,0 +1,165 @@
+{
+    "scopeName": "source.ejs",
+    "patterns": [
+        {
+            "begin": "<%\\s*/\\*",
+            "end": "\\*/\\s*%>",
+            "name": "comment.block.ejs",
+            "beginCaptures": {
+                "0": { "name": "punctuation.definition.comment.begin.ejs" }
+            },
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.comment.end.ejs" }
+            },
+            "patterns": []
+        },
+        {
+            "begin": "<%\\s*=?",
+            "end": "%>",
+            "name": "meta.content.ejs",
+            "beginCaptures":{ "0": { "name": "punctuation.embedded.begin.ejs" } },
+            "endCaptures":{"0":{"name":"punctuation.embedded.end.ejs"}},
+            "patterns": [
+                {
+                    "begin": "(if)\\s*(\\()\\s*",
+                    "end": "(\\))\\s*({)",
+                    "beginCaptures":{ 
+                        "1":{ "name": "ekeyword.if.ejs" },
+                        "2":{ "name": "punctuation.parenthese.if.open.ejs" } 
+                    },
+                    "endCaptures": { 
+                        "1":{ "name": "punctuation.parenthese.if.end.ejs" },
+                        "2":{ "name": "punctuation.brace.if.open.ejs" }
+                    },
+                    "patterns":[
+                        {
+                            "match": "(\\w+)(\\.)(?!forEach)(\\w+)",
+                            "captures": {
+                                "1":{"name": "key.variable.ejs"},
+                                "2":{"name": "punctuation.separator.variable"},
+                                "3":{"name": "key.variable.after.ejs"}
+                            }
+                        },
+                        {
+                            "match": "(\\.)(?!forEach)(\\w+)",
+                            "captures": {
+                                "1":{"name": "punctuation.separator.variable"},
+                                "2":{"name":"key.variable.ejs"}
+                            }
+                        },{
+                            "match": "!=",
+                            "name": "operator.difference"
+                        },{
+                            "match": "==",
+                            "name": "operator.equality"
+                        },{
+                            "match": "'.+?'",
+                            "name": "string.quoted.simple.html"
+                        }
+                    ]
+                },
+                {
+
+                    "match": "\\b(function)\\s*(\\()(.*?)(\\))\\s*(\\{)",
+                    "captures": {
+                        "1":{ "name": "keyword.function.ejs"},
+                        "2":{ "name": "parameter.parenthese.begin.ejs"},
+                        "3":{ "name": "parameter.function.tag.ejs"},
+                        "4":{ "name": "parameter.parenthese.end.ejs"},
+                        "5":{ "name": "punctuation.brace.function.open.ejs" }
+                    }
+                },
+                {
+                    "match": "\\b(function)\\b",
+                    "name": "keyword.function.ejs"
+                },
+                {
+                    "match": "\\b(forEach)\\b\\s*(\\()",
+                    "captures":{
+                        "1":{ "name": "keyword.control.ejs" },
+                        "2":{ "name": "punctuation.parenthese.foreach.open" }
+                    }                    
+                },
+                {
+                    "match": "(\\w+)(\\.)(?!forEach)(\\w+)",
+                    "captures": {
+                        "1":{"name": "key.variable.ejs"},
+                        "2":{"name": "punctuation.separator.variable"},
+                        "3":{"name": "key.variable.after.ejs"}
+                    }
+                },
+                {
+                    "match": "(\\.)(?!forEach)(\\w+)",
+                    "captures": {
+                        "1":{"name": "punctuation.separator.variable"},
+                        "2":{"name":"key.variable.ejs"}
+                    }
+                },
+                {
+                    "match": "\\s*}\\s+",
+                    "name": "punctuation.brace.if.close.ejs"
+                },
+                {
+                    "match": "\\s*(})\\s*(\\))(;)",
+                    "captures": {
+                        "1":{ "name": "punctuation.brace.function.close.ejs" },
+                        "2":{ "name": "punctuation.parenthese.foreach.close" },
+                        "3":{ "name": "punctuation.semicolon" }
+                    }
+                }
+            ]
+        },
+        {
+            "begin": "(</?\\b(div|p|h3|span|h2|h1|script)\\b)",
+            "end": "(>)",
+            "name": "meta.tag.block.html",
+            "beginCaptures": {
+                "1": { "name": "punctuation.definition.tag.begin.html" },
+                "2": { "name": "entity.name.tag.html" }
+            },
+            "endCaptures": {
+                "1": { "name": "punctuation.definition.tag.end.html" }
+            },
+            "patterns": [
+                {
+                    "match": "(\\b[a-zA-Z-]+)(=)",
+                    "name": "meta.attribute-with-value.html",
+                    "captures": {
+                        "1": { "name": "entity.other.attribute-name.html" },
+                        "2": { "name": "punctuation.separator.key-value.html" }
+                    }
+                },
+                {
+                    "begin": "\"",
+                    "end": "\"",
+                    "name": "string.quoted.double.html",
+                    "patterns": [
+                        {
+                            "begin": "<%=",
+                            "end": "%>",
+                            "name": "meta.quoted.content.ejs",
+                            "beginCaptures": { "0": { "name": "punctuation.embedded.begin.ejs" } },
+                            "endCaptures" : { "0": { "name": "punctuation.embedded.end.ejs" } },
+                            "patterns": [
+                                
+                                {
+                                    "match": "(\\w+)(\\.)(\\w+)",
+                                    "captures": {
+                                        "1":{"name": "key.variable.ejs"},
+                                        "2":{"name": "punctuation.separator.variable"},
+                                        "3":{"name": "key.variable.after.ejs"}
+                                    }
+                                }
+                                
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "match": "</?\\b(a|img|ul|li|button|input|select)\\b",
+            "name": "meta.tag.inline.html"
+        }
+    ]
+}

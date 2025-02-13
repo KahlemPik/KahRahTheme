@@ -1,0 +1,66 @@
+{
+    "scopeName": "python.injections",
+    "injectionSelector": "L:source.python -comment -string",
+    "patterns": [
+        {
+            "match": "\\bFlask\\b",
+            "name": "library.flask.python"
+        },
+        {
+            "match": "(request|methods)",
+            "name": "web.communication"
+        },
+        {
+            "match": "(method|form)",
+            "name": "web.communication.entity"
+        },
+        {
+            "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(=)",
+            "captures":{
+                "1":{ "name": "variable.custom.python" },
+                "2":{ "name": "keyword.operator.assignment.python" }
+
+            } 
+        },
+        {
+            "match": "(from) [a-zA-Z_][a-zA-Z0-9_]*.[a-zA-Z_][a-zA-Z0-9_]*.[a-zA-Z_][a-zA-Z0-9_]*\\s*(import) (?!Flask)([a-zA-Z_][a-zA-Z0-9_]*)",
+            "captures":{
+                "1":{ "name": "keyword.import.control.python" },
+                "2":{ "name": "keyword.import.control.python" },
+                "3":{ "name": "support.class.python" }
+
+            } 
+        },{
+            "match": "\\b([A-Z][a-zA-Z0-9_]*(?:\\.[A-Z][a-zA-Z0-9_]*)*)\\s*(\\()([^)]*)(\\))",
+            "captures":{
+                "1": { "name": "support.class.python" },
+                "2": { "name": "punctuation.parenthesis.begin.python" },
+                "3": { "name": "meta.arguments.python" },
+                "4": { "name": "punctuation.parenthesis.end.python" }
+            }
+        },{
+            "match": "\\b(app)\\b",
+            "captures": { 
+                "1": { "name": "app.flask.python" }
+            }
+        },{
+            "match": "\\b(append|replace)\\b",
+            "name": "meta.function-call.method.python"
+        },
+        {
+            "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\.)\\s*(?!(?:append|replace|lower|upper|strip|split|join))([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\()",
+            "captures": {
+                "1": { "name": "variable.custom.python" },
+                "2": { "name": "punctuation.separator.period.python" },
+                "3": { "name": "entity.name.function.python" },
+                "4": { "name": "punctuation.definition.arguments.begin.python" }
+            }
+        },
+        {
+            "match": "(?<!\\.)(?<!\\$)\\b(?!\\b(?:def|class|return|for|while|if|elif|else|try|except|finally|with|as|import|from|pass|break|continue|lambda|not|or|and|in|is|global|nonlocal|assert|yield|del|True|False|None)\\b)([a-zA-Z_][a-zA-Z0-9_]*)\\b(?!\\s*\\()",
+            "captures": {
+                "1": { "name": "variable.custom.python" }
+            }
+        }
+    ]
+}
