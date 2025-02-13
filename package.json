@@ -3,6 +3,7 @@
     "displayName": "KahRahTheme",
     "description": "",
     "version": "0.1.0",
+    "publisher": "PikHalem",
     "engines": {
         "vscode": "^1.97.0"
     },
@@ -37,5 +38,9 @@
                 "injectTo": ["source.python"]
             }
         ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/KahlemPik/KahRahTheme"
     }
 }
