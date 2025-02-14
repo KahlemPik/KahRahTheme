@@ -9,7 +9,23 @@
 		"sideBarTitle.foreground": "#bbbbbb"
 	},
 	"tokenColors": [
+
 		{
+			"scope": [
+				"constant.character.entity.html",
+				"punctuation.definition.entity.html"
+			],
+			"settings": {
+				"foreground": "#00ffb3",
+				"fontStyle": "italic"
+			}
+		},{
+			"scope": "keyword.generic.ejs",
+			"settings": {
+				"foreground": "#e06268",
+				"fontStyle": "bold"
+			}
+		},{
 			"scope": "app.flask.python",
 			"settings": {
 				"foreground": "#ff62c3",
@@ -76,7 +92,9 @@
 		{
 			"scope": [
 				"punctuation.embedded.begin.ejs",
-				"punctuation.embedded.end.ejs"
+				"punctuation.embedded.end.ejs",
+				"operator.divide",
+				"meta.template.ejs"
 			],
 			"settings": {
 				"foreground": "#c868ee",
@@ -85,7 +103,8 @@
 		{
 			"scope": [
 				"support.function.ejs",
-				"punctuation.accessor.ejs"
+				"punctuation.accessor.ejs",
+				"name.template.ejs"
 			],
 			"settings": {
 				"foreground": "#ee940d",
@@ -758,7 +777,8 @@
 				"entity.name.operator.custom-literal",
 				"ekeyword.if.ejs",
 				"keyword.control.ejs",
-				"keyword.foreach.ejs"
+				"keyword.foreach.ejs",
+				"keyword.other.custom.function.ejs"
 			],
 			"settings": {
 				"foreground": "#DCDCAA"
@@ -992,7 +1012,8 @@
 		{
 			"scope": [
 				"keyword.other.new.php",
-				"meta.var.expr.js"
+				"meta.var.expr.js",
+				"keyword.other.new.ejs"
 			],
 			"settings": {
 				"foreground": "#0087f5"
@@ -1032,7 +1053,8 @@
 		},{
 			"scope": [
 				"operator.difference",
-				"operator.equality"
+				"operator.equality",
+				"punctuation.comma"
 			],
 			"settings": {
 				"foreground": "#ffbb00fa",

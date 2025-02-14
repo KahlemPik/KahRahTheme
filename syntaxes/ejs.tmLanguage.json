@@ -12,15 +12,43 @@
                 "0": { "name": "punctuation.definition.comment.end.ejs" }
             },
             "patterns": []
-        },
-        {
+        },{
+            "begin": "<%-",
+            "end": "%>",
+            "beginCaptures": { "0": { "name": "meta.template.ejs.open" } },
+            "endCaptures": { "0": { "name": "meta.template.ejs.close" } },
+            "patterns": [
+                {
+                    "match": "\\w+",
+                    "name": "name.template.ejs"
+                }
+            ]
+
+        },{
             "begin": "<%\\s*=?",
             "end": "%>",
             "name": "meta.content.ejs",
             "beginCaptures":{ "0": { "name": "punctuation.embedded.begin.ejs" } },
             "endCaptures":{"0":{"name":"punctuation.embedded.end.ejs"}},
             "patterns": [
+                
                 {
+                    "match": "(Math|Date)(\\()",
+                    "captures": {
+                        "1":{"name": "keyword.generic.ejs"},
+                        "2":{"name": "punctuation.separator.ejs"},
+                        "3":{"name": "keyword.other.custom.function.ejs"},
+                        "4":{"name": "punctuation.parenthese.open"}
+                    }
+                },{
+                    "match": "(Math|Date)(\\.)(\\w+)(\\()",
+                    "captures": {
+                        "1":{"name": "keyword.generic.ejs"},
+                        "2":{"name": "punctuation.separator.ejs"},
+                        "3":{"name": "keyword.other.custom.function.ejs"},
+                        "4":{"name": "punctuation.parenthese.open"}
+                    }
+                },{
                     "begin": "(if)\\s*(\\()\\s*",
                     "end": "(\\))\\s*({)",
                     "beginCaptures":{ 
@@ -55,6 +83,15 @@
                         },{
                             "match": "'.+?'",
                             "name": "string.quoted.simple.html"
+                        },{
+                            "match": "/",
+                            "name": "operator.divide"
+                        },{
+                            "match": "new",
+                            "name": "keyword.other.new.ejs"
+                        },{
+                            "match": "\\b\\d+(?:\\.\\d+)?\\b",
+                            "name": "constant.numeric.ejs"
                         }
                     ]
                 },
@@ -79,8 +116,21 @@
                         "1":{ "name": "keyword.control.ejs" },
                         "2":{ "name": "punctuation.parenthese.foreach.open" }
                     }                    
-                },
-                {
+                },{
+                    "match": "(\\.)(toString|substring|now|getFullYear|floor)(\\()",
+                    "captures": {
+                        "1":{"name": "punctuation.separator.variable"},
+                        "2":{"name": "keyword.other.custom.function.ejs"},
+                        "3":{ "name": "punctuation.parenthese.open" }
+                    }
+                },{
+                    "match": "(\\.)(?!forEach|toString|substring|now|getFullYear|floor)(\\w+)(\\()",
+                    "captures": {
+                        "1":{"name": "punctuation.separator.variable"},
+                        "2":{"name": "key.variable.after.ejs"},
+                        "3":{ "name": "punctuation.parenthese.open" }
+                    }
+                },{
                     "match": "(\\w+)(\\.)(?!forEach)(\\w+)",
                     "captures": {
                         "1":{"name": "key.variable.ejs"},
@@ -106,11 +156,28 @@
                         "2":{ "name": "punctuation.parenthese.foreach.close" },
                         "3":{ "name": "punctuation.semicolon" }
                     }
+                },{
+                    "match": "\\b(new)\\b",
+                    "name": "keyword.other.new.ejs"
+                },{
+                    "match": "\\b\\d+(?:\\.\\d+)?\\b",
+                    "name": "constant.numeric.ejs"
+                },{
+                    "match": "(?!forEach)(\\w+)(\\.)",
+                    "captures": {
+                        "1":{"name": "key.variable.ejs"},
+                        "2":{"name": "punctuation.separator.variable"}
+                    }
+                },{
+                    "match": "\\s+(?!forEach)(\\w+)\\s+",
+                    "captures": {
+                        "1":{"name": "key.variable.ejs"}
+                    }
                 }
             ]
         },
         {
-            "begin": "(</?\\b(div|p|h3|span|h2|h1|script)\\b)",
+            "begin": "(</?\\b(div|p|span|h1|h2|h3|h4|h5|h6|script|html|head|title|body|nav|ul|main|section|footer|li|a|meta|link)\\b)",
             "end": "(>)",
             "name": "meta.tag.block.html",
             "beginCaptures": {
@@ -121,6 +188,7 @@
                 "1": { "name": "punctuation.definition.tag.end.html" }
             },
             "patterns": [
+
                 {
                     "match": "(\\b[a-zA-Z-]+)(=)",
                     "name": "meta.attribute-with-value.html",
@@ -128,8 +196,7 @@
                         "1": { "name": "entity.other.attribute-name.html" },
                         "2": { "name": "punctuation.separator.key-value.html" }
                     }
-                },
-                {
+                },{
                     "begin": "\"",
                     "end": "\"",
                     "name": "string.quoted.double.html",
@@ -143,12 +210,54 @@
                             "patterns": [
                                 
                                 {
+                                    "match": "(Math|Date)(\\.)(\\w+)(\\()",
+                                    "captures": {
+                                        "1":{"name": "keyword.generic.ejs"},
+                                        "2":{"name": "punctuation.separator.ejs"},
+                                        "3":{"name": "keyword.other.custom.function.ejs"},
+                                        "4":{"name": "punctuation.parenthese.open"}
+                                    }
+                                },{
+                                    "match": "(\\.)(toString|substring|now|getFullYear|floor)(\\()",
+                                    "captures": {
+                                        "1":{"name": "punctuation.separator.variable"},
+                                        "2":{"name": "keyword.other.custom.function.ejs"},
+                                        "3":{ "name": "punctuation.parenthese.open" }
+                                    }
+                                },{
+                                    "match": "(\\.)(?!forEach|toString|substring|now|getFullYear|floor)(\\w+)(\\()",
+                                    "captures": {
+                                        "1":{"name": "punctuation.separator.variable"},
+                                        "2":{"name": "key.variable.after.ejs"},
+                                        "3":{ "name": "punctuation.parenthese.open" }
+                                    }
+                                },{
                                     "match": "(\\w+)(\\.)(\\w+)",
                                     "captures": {
                                         "1":{"name": "key.variable.ejs"},
                                         "2":{"name": "punctuation.separator.variable"},
                                         "3":{"name": "key.variable.after.ejs"}
                                     }
+                                },{
+                                    "match": "\\(",
+                                    "name": "punctuation.parenthese.open"
+        
+                                },{
+                                    "match": "\\)",
+                                    "name": "punctuation.parenthese.close"
+        
+                                },{
+                                    "match": "/",
+                                    "name": "operator.divide"
+                                },{
+                                    "match": ",",
+                                    "name": "punctuation.comma"
+                                },{
+                                    "match": "\\b(new)\\b",
+                                    "name": "keyword.other.new.ejs"
+                                },{
+                                    "match": "\\b\\d+(?:\\.\\d+)?\\b",
+                                    "name": "constant.numeric.ejs"
                                 }
                                 
                             ]
@@ -156,10 +265,12 @@
                     ]
                 }
             ]
-        },
-        {
-            "match": "</?\\b(a|img|ul|li|button|input|select)\\b",
+        },{
+            "match": "</?\\b(a|img|ul|li|button|input|select|meta|link)\\b",
             "name": "meta.tag.inline.html"
+        },{
+            "match": "&\\w+;",
+            "name": "constant.character.entity.html"
         }
     ]
 }
