@@ -2,7 +2,7 @@
     "name": "kahrahtheme",
     "displayName": "KahRahTheme",
     "description": "",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "publisher": "PikHalem",
     "engines": {
         "vscode": "^1.97.0"
@@ -22,15 +22,16 @@
             {
                 "id": "ejs",
                 "extensions": [".ejs"],
-                "aliases": ["EJS"],
+                "aliases": ["EJS","ejs"],
                 "configuration": "./language-configuration.json"
             }
         ],
         "grammars": [
             {
-                "language": "ejs",
-                "scopeName": "source.ejs",
-                "path": "./syntaxes/ejs.tmLanguage.json"
+                "language": "html",
+                "scopeName": "html.injection.ejs",
+                "path": "./syntaxes/ejs.tmLanguage.json",
+                "injectTo": ["text.html.basic"]
             },
             {
                 "scopeName": "python.injections",

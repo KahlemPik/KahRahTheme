@@ -1,7 +1,12 @@
 {
-    "scopeName": "source.ejs",
+    "fileTypes": ["ejs"],
+    "name": "EJS",
+    "scopeName": "html.injection.ejs",
+    "injectionSelector": "L:text.html.basic",
     "patterns": [
         {
+            "include": "text.html.basic"
+        },{
             "begin": "<%\\s*/\\*",
             "end": "\\*/\\s*%>",
             "name": "comment.block.ejs",
