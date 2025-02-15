@@ -2,6 +2,12 @@
 
 All notable changes to the "kahrahtheme" extension will be documented in this file.
 
+## 0.2.3
+
+### Fixed
+
+- Ejs integration in double quoted string in attributes of html tag
+
 ## 0.2.2
 
 ### Fixed

@@ -5,8 +5,6 @@
     "injectionSelector": "L:text.html.basic",
     "patterns": [
         {
-            "include": "text.html.basic"
-        },{
             "begin": "<%\\s*/\\*",
             "end": "\\*/\\s*%>",
             "name": "comment.block.ejs",
@@ -263,6 +261,11 @@
                                 },{
                                     "match": "\\b\\d+(?:\\.\\d+)?\\b",
                                     "name": "constant.numeric.ejs"
+                                },{
+                                    "match": "\\s+(?!forEach)(\\w+)\\s+",
+                                    "captures": {
+                                        "1":{"name": "key.variable.ejs"}
+                                    }
                                 }
                                 
                             ]
