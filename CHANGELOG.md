@@ -2,6 +2,14 @@
 
 All notable changes to the "kahrahtheme" extension will be documented in this file.
 
+## 0.2.4
+
+### Fixed
+
+- Added forgotten HTML Tags (br, iframe, ..)
+- else / elseif ejs integrations
+- boolean ejs
+
 ## 0.2.3
 
 ### Fixed

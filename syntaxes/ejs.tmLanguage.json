@@ -95,6 +95,9 @@
                         },{
                             "match": "\\b\\d+(?:\\.\\d+)?\\b",
                             "name": "constant.numeric.ejs"
+                        },{
+                            "match": "(true|false)",
+                            "name": "constant.language.ejs"
                         }
                     ]
                 },
@@ -176,11 +179,20 @@
                     "captures": {
                         "1":{"name": "key.variable.ejs"}
                     }
+                },{
+                    "match": "(else)\\s*(\\{)",
+                    "captures": {
+                        "1":{ "name": "keyword.control.else.ejs"},
+                        "2":{ "name": "punctuation.brace.else.open.ejs"}
+                    }
+                },{
+                    "match": "(true|false)",
+                    "name": "constant.language.ejs"
                 }
             ]
         },
         {
-            "begin": "(</?\\b(div|p|span|h1|h2|h3|h4|h5|h6|script|html|head|title|body|nav|ul|main|section|footer|li|a|meta|link)\\b)",
+            "begin": "(</?\\b(div|p|span|h1|h2|h3|h4|h5|h6|script|html|head|title|body|nav|ul|main|section|footer|li|a|meta|link|br|video|table|thead|tbody|tfoot|textarea|svg|optgroup|option|label|article|header|form|input|fieldset|figure|figcaption|em|dl|dt|dd|details|summary|datalist|data|colgroup|col|code|cite|caption|canvas|blockquote|map|area|abbr|ruby|rt|rp|meter|progress|picture|source)\\b)",
             "end": "(>)",
             "name": "meta.tag.block.html",
             "beginCaptures": {
@@ -274,11 +286,19 @@
                 }
             ]
         },{
-            "match": "</?\\b(a|img|ul|li|button|input|select|meta|link)\\b",
+            "match": "</?\\b(a|img|ul|li|button|input|select|meta|link|source)\\b",
             "name": "meta.tag.inline.html"
         },{
             "match": "&\\w+;",
             "name": "constant.character.entity.html"
+        },{
+            "match": "(<)(!DOCTYPE)\\s+(html)(>)",
+            "captures": {
+                "1":{"name": "punctuation.definition.tag.begin.html"},
+                "2":{"name": "entity.name.tag.html"},
+                "3":{"name": "entity.name.tag.html"},
+                "4":{"name": "punctuation.definition.tag.end.html"}
+            }
         }
     ]
 }
