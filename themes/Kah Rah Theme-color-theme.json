@@ -262,7 +262,8 @@
 			"name": "Other Variable, String Link",
 			"scope": [
 				"support.other.variable",
-				"string.other.link"
+				"string.other.link",
+				"entity.svg.attribute-name"
 			],
 			"settings": {
 				"foreground": "#f07178"
@@ -382,7 +383,8 @@
 		{
 			"name": "Attributes",
 			"scope": [
-				"entity.other.attribute-name"
+				"entity.other.attribute-name",
+				"string.quoted.svg"
 			],
 			"settings": {
 				"foreground": "#92ead0"

@@ -190,9 +190,34 @@
                     "name": "constant.language.ejs"
                 }
             ]
-        },
-        {
-            "begin": "(</?\\b(div|p|span|h1|h2|h3|h4|h5|h6|script|html|head|title|body|nav|ul|main|section|footer|li|a|meta|link|br|video|table|thead|tbody|tfoot|textarea|svg|optgroup|option|label|article|header|form|input|fieldset|figure|figcaption|em|dl|dt|dd|details|summary|datalist|data|colgroup|col|code|cite|caption|canvas|blockquote|map|area|abbr|ruby|rt|rp|meter|progress|picture|source)\\b)",
+        },{
+            "begin": "(</?\\b(svg|rect|path)\\b)",
+            "end": "(/?>)",
+            "name": "meta.tag.svg.html",
+            "beginCaptures":{
+                "1":{"name":"punctuation.definition.tag.begin.html"},
+                "2": { "name": "entity.name.svg.html" }
+            },
+            "endCaptures":{
+                "1":{"name": "punctuation.definition.tag.end.html" }
+            },
+            "patterns":[
+                {
+                    "match": "(\\b[a-zA-Z-]+)(=)",
+                    "name": "meta.attribute-with-value.html",
+                    "captures": {
+                        "1": { "name": "entity.svg.attribute-name.html" },
+                        "2": { "name": "punctuation.separator.key-value.html" }
+                    }
+                },{
+                    "begin": "\"",
+                    "end": "\"",
+                    "name": "string.quoted.svg.html"
+                }
+            ]
+
+        }, {
+            "begin": "(</?\\b(div|p|span|h1|h2|h3|h4|h5|h6|script|html|head|title|body|nav|ul|main|section|footer|li|a|meta|link|br|video|table|thead|tbody|tfoot|textarea|optgroup|option|label|article|header|form|input|fieldset|figure|figcaption|em|dl|dt|dd|details|summary|datalist|data|colgroup|col|code|cite|caption|canvas|blockquote|map|area|abbr|ruby|rt|rp|meter|progress|picture|source|pre|g|rect|path)\\b)",
             "end": "(>)",
             "name": "meta.tag.block.html",
             "beginCaptures": {

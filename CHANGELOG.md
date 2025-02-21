@@ -2,6 +2,14 @@
 
 All notable changes to the "kahrahtheme" extension will be documented in this file.
 
+## 0.2.5
+
+### Fixed 
+- Tag pre, svg, path et rect in ejs
+
+### Added
+- Differentiating svg related tags and other html tags
+
 ## 0.2.4
 
 ### Fixed
