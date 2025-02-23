@@ -217,7 +217,7 @@
             ]
 
         }, {
-            "begin": "(</?\\b(div|p|span|h1|h2|h3|h4|h5|h6|script|html|head|title|body|nav|ul|main|section|footer|li|a|meta|link|br|video|table|thead|tbody|tfoot|textarea|optgroup|option|label|article|header|form|input|fieldset|figure|figcaption|em|dl|dt|dd|details|summary|datalist|data|colgroup|col|code|cite|caption|canvas|blockquote|map|area|abbr|ruby|rt|rp|meter|progress|picture|source|pre|g|rect|path)\\b)",
+            "begin": "(</?\\b(div|p|img|span|h1|h2|h3|h4|h5|h6|script|html|head|title|body|nav|ul|main|section|footer|li|a|meta|link|br|video|table|thead|tbody|tfoot|textarea|optgroup|option|label|article|header|form|input|fieldset|figure|figcaption|em|dl|dt|dd|details|summary|datalist|data|colgroup|col|code|cite|caption|canvas|blockquote|map|area|abbr|ruby|rt|rp|meter|progress|picture|source|pre|g|rect|path)\\b)",
             "end": "(>)",
             "name": "meta.tag.block.html",
             "beginCaptures": {

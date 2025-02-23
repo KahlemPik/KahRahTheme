@@ -2,6 +2,11 @@
 
 All notable changes to the "kahrahtheme" extension will be documented in this file.
 
+## 0.2.6
+
+### Fixed
+- Tag img
+
 ## 0.2.5
 
 ### Fixed 

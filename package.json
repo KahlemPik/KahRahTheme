@@ -2,7 +2,7 @@
     "name": "kahrahtheme",
     "displayName": "KahRahTheme",
     "description": "",
-    "version": "0.2.5",
+    "version": "0.2.6",
     "publisher": "PikHalem",
     "engines": {
         "vscode": "^1.97.0"
