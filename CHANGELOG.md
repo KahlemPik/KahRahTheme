@@ -2,6 +2,10 @@
 
 All notable changes to the "kahrahtheme" extension will be documented in this file.
 
+## 0.3.0
+- Minimum version re-evaluation (1.85)
+- Tag button fixed
+
 ## 0.2.6
 
 ### Fixed
